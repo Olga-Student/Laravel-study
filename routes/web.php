@@ -17,3 +17,13 @@ Route::get('/', function () {
 /*Route::get('/', function () {
     return 'welcome';
 });*/
+
+Route::get('/information', function () {
+    return view('information');
+});
+
+Route::get('/news', function () {
+    return view('news');
+});
+
+
