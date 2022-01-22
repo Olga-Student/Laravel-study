@@ -15,7 +15,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        return view('news');
     }
 
     /**
@@ -47,7 +47,7 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**

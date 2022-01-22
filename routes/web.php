@@ -24,9 +24,9 @@ Route::get('/information', function () {
     return view('information');
 });
 
-Route::get('/news', function () {
+/*Route::get('/news', function () {
     return view('news');
-});
+});*/
 
 //Route::get('/newstest', function () {});
 /*Route::match(['get','post'], '/test', function (){'Hello';});
@@ -37,7 +37,16 @@ Route::get('/news', [App\Http\Controllers\NewsController::class, 'index']);
 Route::get('/news/card/{id}', [App\Http\Controllers\NewsController::class, 'card'])
     ->name("news::card");
 
-Route::resource('admin/category', Admin\CategoryController::class);
+//Route::resource('admin/category', Admin\CategoryController::class);
+Route::get('/admin/category', [\App\Http\Controllers\Admin\CategoryController::class, 'index'])
+    ->name("admin::category::index");
+
+Route::get('/admin/authorization', [\App\Http\Controllers\Admin\AuthorizationController::class, 'authorization'])
+    ->name("admin::authorization::authorization");
+
+Route::get('/admin/information', [\App\Http\Controllers\Admin\InformationController::class, 'information'])
+    ->name("admin::information::information");
+
 
 /*
 Использование нескольких роутов для админки
