@@ -24,9 +24,9 @@ Route::get('/information', function () {
     return view('information');
 });
 
-/*Route::get('/news', function () {
+Route::get('/news', function () {
     return view('news');
-});*/
+});
 
 //Route::get('/newstest', function () {});
 /*Route::match(['get','post'], '/test', function (){'Hello';});
