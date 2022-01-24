@@ -33,7 +33,9 @@ Route::get('/information', function () {
 Route::any('/test', function (){'Hello';}) or Route::view('/test', view('Hello'));
 Route::redirect('/test', '/test2'); //редирект лучше делать на стороне вебсервера*/
 
-Route::get('/news', [App\Http\Controllers\NewsController::class, 'index']);
+Route::get('/news', [\App\Http\Controllers\NewsController::class, 'index'])
+    ->name("news::catalog");
+
 Route::get('/news/card/{id}', [App\Http\Controllers\NewsController::class, 'card'])
     ->name("news::card");
 
