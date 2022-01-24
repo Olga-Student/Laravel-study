@@ -1,16 +1,12 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+@extends('layouts.main')
 
-<body>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+@section('title')
+    Добавление новостей
+@endsection
 
-    <title>Добавление новостей</title>
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-</head>
+@section('content')
 <main>
-    <h2>Добавлене новостей</h2>
+    <h2>Добавленbе новостей</h2>
     <div class="row col-md-12">
         <form action="" method="post">
 
@@ -37,6 +33,4 @@
         </form>
     </div>
 </main>
-<footer>2022</footer>
-</body>
-</html>
+@endsection

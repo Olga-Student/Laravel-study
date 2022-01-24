@@ -1,30 +1,22 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+@extends('layouts.main')
 
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Форма авторизации и регистрации</title>
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-</head>
-<body>
+@section('title')
+    Автоизация на сайте новостей
+@endsection
+@section('content')
 <form action="" method="post" enctype="multipart/form-data">
     <label>ФИО</label>
-    <input type="text" name="full_name" placeholder="Введите свое полное имя">
+    <input type="text" name="full_name" placeholder="Введите свое полное имя"><br>
     <label>Логин</label>
-    <input type="text" name="login" placeholder="Введите свой логин">
+    <input type="text" name="login" placeholder="Введите свой логин"><br>
     <label>Почта</label>
-    <input type="text" name="email" placeholder="Введите адрес электронной почты">
+    <input type="text" name="email" placeholder="Введите адрес электронной почты"><br>
     <label>Изображение профиля</label>
-    <input type="file" name="avatar">
+    <input type="file" name="avatar"><br>
     <label>Пароль</label>
-    <input type="text" name="password" placeholder="Введите пароль">
+    <input type="text" name="password" placeholder="Введите пароль"><br>
     <label>Подтверждение пароля</label>
-    <input type="text" name="password_cop" placeholder="Введите подтверждение пароля">
-
-
+    <input type="text" name="password_cop" placeholder="Введите подтверждение пароля"><br>
 
     <button type="submit">Зарегистрироваться</button>
     <p>
@@ -32,5 +24,4 @@
     </p>
 
 </form>
-</body>
-</html>
+@endsection

@@ -1,9 +1,12 @@
 <div class="menu">
     @foreach($menu as $item)
         <div>
-            <a href="{{route($item['alias'])}}">
-                {{$item['title']}}
-            </a>
+            <nav>
+                <a  href="{{route($item['alias'])}}">
+                    {{$item['title']}}<br>
+                </a>
+            </nav>
+
         </div>
     @endforeach
 </div>
