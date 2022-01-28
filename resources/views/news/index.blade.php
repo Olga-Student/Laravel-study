@@ -12,6 +12,8 @@
 
       <div>
           <a href='{{route('news::card', ['id'=>$id])}}'>{!! $item['title']!!}</a>
+
+          {!! $item['description']!!}
       </div>
     @empty
        Not news;

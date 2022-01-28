@@ -5,18 +5,19 @@
 @endsection
 
 @section('content')
-    <div class="content">
-        <div class="title m-b-md">
-            Какие новости Вас интересуют? Выберете категорию
-        </div>
+    <div class="title m-b-md">
+        Какие новости Вас интересуют? Выберете категорию
+    </div>
+    <div>
+        @forelse($category as $id => $item)
+            <div>
+                <a href='{{route('news::card', ['id'=>$id])}}'>{!! $item['topic']!!}</a>
 
-        <div class="links">
-            <a href="">Politics</a>
-            <a href="">Sport</a>
-            <a href="">Fashion</a>
-            <a href="">Style</a>
-
-        </div>
+                {!! $item['description']!!}
+            </div>
+        @empty
+            Not categories;
+        @endforelse
     </div>
 @endsection
 

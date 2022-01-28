@@ -84,4 +84,22 @@ Route::group([
 
 });
 
+//Route::get('/admin/category', [\App\Http\Controllers\Admin\CategoryController::class, 'index'])->name("admin::category::index");
+Route::group([
+    'prefix' => '/admin/category',
+    'as' => 'admin::category::'
+], function (){
+    Route::get('', [\App\Http\Controllers\Admin\CategoryController::class, 'index'])
+        ->name("index");
+    Route::post('save', [\App\Http\Controllers\Admin\CategoryController::class, 'save'])
+        ->name("save");
+    Route::get('new', [\App\Http\Controllers\Admin\CategoryController::class, 'new'])
+        ->name("new");
 
+    Route::get('update', [\App\Http\Controllers\Admin\CategoryController::class, 'update'])
+        ->name("update");
+
+    Route::get('delete', [\App\Http\Controllers\Admin\CategoryController::class, 'delete'])
+        ->name("delete");
+
+});

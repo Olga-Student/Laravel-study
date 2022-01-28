@@ -6,12 +6,12 @@ class News
 {    private $news = [
         1 => [
             'title' => 'news 1',
-            'description' => 'jkljskljkljkl',
+            'description' => 'lllllllllllllllll',
             'category_id' => 3
         ],
         2 => [
             'title' => 'news 2',
-            'description' => 'jkljskljkljkl',
+            'description' => 'hhhhhhhhhhhhhhhhhhhhhh',
             'category_id' => 4
         ]
     ];
@@ -30,7 +30,7 @@ class News
         }
         return $return;
     }
-    public function getByuId($id)
+    public function getById($id)
     {        return $this->news[$id];
     }
 }

@@ -17,7 +17,7 @@ class NewsController extends Controller
     public function card(News $news, $id)
     {
 
-        return view('news.card', ['item' => $news->getByuId($id)]);
+        return view('news.card', ['item' => $news->getById($id)]);
     }
 
 };

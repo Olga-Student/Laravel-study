@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Models\Category;
 
 class CategoryController extends Controller
 {
@@ -13,9 +13,12 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Category $category)
     {
-        return view('news');
+
+        $category = $category->getCategory();
+        return view('news', ['category'=>$category]);
+        dd([$category]);
     }
 
     /**
@@ -23,9 +26,17 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function save(Request $request)
     {
-        //
+        $topic = $request->input('topic');
+        $description = $request->input('description');
+        //сохраняем данные в базу
+        return redirect()->route('admin::category::new');
+        //return view('create'); отделяем логику отображения от создания
+    }
+
+    public function new(){
+        return view('category.create');
     }
 
     /**
