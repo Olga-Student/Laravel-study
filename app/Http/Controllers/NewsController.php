@@ -8,17 +8,17 @@ use Illuminate\Http\Request;
 class NewsController extends Controller
 {
 
-    public function index(){
+    public function index(News $news){
 
-       $news = (new News())->getNews();
+       $news = $news->getNews();
         return view('news.index', ['news'=>$news]);
     }
 
+    public function card(News $news, $id)
+    {
 
-    public function card($id){
-       $news = $this->news[$id];
-       return $news['title'];
-        //return view('news.card', ['item' => $news);
+        return view('news.card', ['item' => $news->getByuId($id)]);
     }
+
 };
 

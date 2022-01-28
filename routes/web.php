@@ -50,10 +50,10 @@ Route::get('/admin/information', [\App\Http\Controllers\Admin\InformationControl
     ->name("admin::information::information");
 
 
-/*
-Использование нескольких роутов для админки
 
- Route::get('/admin/news/', [\App\Http\Controllers\Admin\NewsController::class, 'index'])->name("admin::news::index");
+//Использование нескольких роутов для админки
+
+/* Route::get('/admin/news/', [\App\Http\Controllers\Admin\NewsController::class, 'index'])->name("admin::news::index");
 Route::get('/admin/news/create', [\App\Http\Controllers\Admin\NewsController::class, 'create'])->name("admin::news::create");
 Route::get('/admin/news/update', [\App\Http\Controllers\Admin\NewsController::class, 'update'])->name("admin::news::update");
 Route::get('/admin/news/delete', [\App\Http\Controllers\Admin\NewsController::class, 'delete'])->name("admin::news::delete");
@@ -69,8 +69,12 @@ Route::group([
     Route::get('', [AdminNewsController::class, 'index'])
         ->name("index");
 
-    Route::get('create', [AdminNewsController::class, 'create'])
+    //Route::match(['get', 'post'], 'create', [AdminNewsController::class, 'create'])//
+        //->name("create");//
+    Route::post('create', [AdminNewsController::class, 'create'])
         ->name("create");
+    Route::get('new', [AdminNewsController::class, 'new'])
+        ->name("new");
 
     Route::get('update', [AdminNewsController::class, 'update'])
         ->name("update");
