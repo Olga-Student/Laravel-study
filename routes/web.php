@@ -101,5 +101,6 @@ Route::group([
 
     Route::get('delete', [\App\Http\Controllers\Admin\CategoryController::class, 'delete'])
         ->name("delete");
-
 });
+
+Route::get('/db',[\App\Http\Controllers\DBController::class, 'index']);

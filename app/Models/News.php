@@ -2,6 +2,10 @@
 
 namespace App\Models;
 
+
+use Illuminate\Support\Facades\DB;
+
+
 class News
 {    private $news = [
         1 => [
@@ -15,10 +19,16 @@ class News
             'category_id' => 4
         ]
     ];
+
+
+
     public function getNews()
     {
-        return $this->news;
+       // return $this->news;
+        $news = DB::select("SELECT * FROM news");
+        return $news;
     }
+
     public function getByCategoryId(int $categoryId)
     {
         $return = [];
@@ -31,7 +41,9 @@ class News
         return $return;
     }
     public function getById($id)
-    {        return $this->news[$id];
+    {
+        return $this->news[$id];
     }
+
 }
 
