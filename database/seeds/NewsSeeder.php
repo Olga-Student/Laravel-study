@@ -12,7 +12,32 @@ class NewsSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    // ПРобовала загрузки через сид не отработало php artisan db:seed
+
+    //   ReflectionException  : Class DatabaseSeeder does not exist
+    //
+    //  at C:\Openserver\OpenServer\domains\laravel.local\vendor\laravel\framework\src\Illuminate\Container\Container.php:788
+    //    784|         if ($concrete instanceof Closure) {
+    //    785|             return $concrete($this, $this->getLastParameterOverride());
+    //    786|         }
+    //    787|
+    //  > 788|         $reflector = new ReflectionClass($concrete);
+    //    789|
+    //    790|         // If the type is not instantiable, the developer is attempting to resolve
+    //    791|         // an abstract type such as an Interface or Abstract Class and there is
+    //    792|         // no binding registered for the abstractions so we need to bail out.
+    //
+    //  Exception trace:
+    //
+    //  1   ReflectionClass::__construct("DatabaseSeeder")
+    //      C:\Openserver\OpenServer\domains\laravel.local\vendor\laravel\framework\src\Illuminate\Container\Container.php:788
+    //
+    //  2   Illuminate\Container\Container::build("DatabaseSeeder")
+    //      C:\Openserver\OpenServer\domains\laravel.local\vendor\laravel\framework\src\Illuminate\Container\Container.php:667
+    //
+    //  Please use the argument -v to see more details.
+
+   /* public function run()
     {
             \DB::table('news')
             ->insert([
@@ -22,8 +47,8 @@ class NewsSeeder extends Seeder
                 'publish_date'=> date('Y-n-d'),
                 'category_id' => '5'
             ]);
-    }
-    /*public function run(Generator $generator)
+    }*/
+    public function run(Generator $generator)
     {
 
         \DB::table('news')
@@ -34,5 +59,5 @@ class NewsSeeder extends Seeder
                 'publish_date' => $generator->dateTime(),
                 'category_id' => $generator->rand(0, 5)
             ]);
-    }*/
+    }
 }
