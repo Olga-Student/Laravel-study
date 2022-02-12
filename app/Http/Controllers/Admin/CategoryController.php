@@ -17,7 +17,7 @@ class CategoryController extends Controller
     {
 
         $category = $category->getCategory();
-        return view('news', ['category'=>$category]);
+        return view('news.category', ['category'=>$category]);
         dd([$category]);
     }
 

@@ -31,7 +31,11 @@ class CreateNewsTable extends Migration
                 ->nullable(true);
             $table->softDeletes();
             $table->timestamps();
-            $table->unsignedBigInteger('category_id')->nullable(false)->default(0);
+            $table->BigInteger('category_id')
+                ->nullable(true)
+                ->default(null)
+                ->unsigned()
+                ->index();
         });
     }
 

@@ -9,10 +9,10 @@
     <div>
         <div>
             Заголовок новости:
-            {{$item['title']}}
+            {{$item->title}}
         </div>
         <div>
-            {{$item['description']}}
+            {{$item->content}}
         </div>
     </div>
 @endsection

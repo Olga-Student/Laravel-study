@@ -2,48 +2,27 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-use Illuminate\Support\Facades\DB;
+class News extends Model
+{
+    //use HasFactory;
 
-
-class News
-{    private $news = [
-        1 => [
-            'title' => 'news 1',
-            'description' => 'lllllllllllllllll',
-            'category_id' => 3
-        ],
-        2 => [
-            'title' => 'news 2',
-            'description' => 'hhhhhhhhhhhhhhhhhhhhhh',
-            'category_id' => 4
-        ]
+    protected $fillable = [
+        'title',
+        'content',
+        'category_id'
     ];
 
-
-
-    public function getNews()
+    public static function getByCategoryId(int $categoryId)
     {
-       // return $this->news;
-        $news = DB::select("SELECT * FROM news");
-        return $news;
+        return static::query()
+            ->where('category_id', $categoryId)
+            ->get();
     }
 
-    public function getByCategoryId(int $categoryId)
-    {
-        $return = [];
-        foreach ($this->news as $item) {
-            if($item['category_id'] == $categoryId) {
-                //$item['category_id'] = 100;
-                $return[] = $item;
-            }
-        }
-        return $return;
+    public function category() {
+        return $this->belongsTo(Category::class);
     }
-    public function getById($id)
-    {
-        return $this->news[$id];
-    }
-
 }
-

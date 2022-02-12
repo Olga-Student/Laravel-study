@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
-class Category
+use Illuminate\Database\Eloquent\Model;
+
+class Category extends Model
 {   private $category = [
         1 => [
             'topic' => 'history',
@@ -41,6 +43,10 @@ class Category
         }
         return $return;
     }
+
+    /*public function news() {
+        return $this->hasMany(NEWS::class);
+    }*/
 }
 
 

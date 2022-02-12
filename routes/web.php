@@ -35,8 +35,10 @@ Route::redirect('/test', '/test2'); //редирект лучше делать �
 
 Route::get('/news', [\App\Http\Controllers\NewsController::class, 'index'])
     ->name("news::catalog");
+Route::get('/news/category/{category_id}', [\App\Http\Controllers\NewsController::class, 'category'])
+    ->name("news::category");
 
-Route::get('/news/card/{id}', [App\Http\Controllers\NewsController::class, 'card'])
+Route::get('/news/card/{news}', [App\Http\Controllers\NewsController::class, 'card'])
     ->name("news::card");
 
 //Route::resource('admin/category', Admin\CategoryController::class);

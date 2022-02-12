@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateNewsTable extends Migration
+class CreateCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,12 +15,27 @@ class CreateNewsTable extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('title_category','50')
+            $table->string('topic','100')
                 ->unique()
                 ->nullable(false)
                 ->comment('Категория новости');
             $table->timestamps();
         });
+
+        Schema::table('news', function (Blueprint $table){
+            $table->foreign('category_id')
+                ->references('id')
+                ->on('categories');
+
+        } );
+        DB::table('categories')
+            ->insert([
+                ['topic' => 'History'],
+                ['topic' => 'Politics'],
+                ['topic' => 'Sport'],
+                ['topic' => 'Fashion'],
+                ['topic' => 'Health'],
+            ]);
     }
 
     /**

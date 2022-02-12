@@ -4,6 +4,7 @@ namespace Database\Seeds;
 use Faker\Generator;
 use Illuminate\Database\Seeder;
 
+
 class CategoriesSeeder extends Seeder
 {
     /**
@@ -13,9 +14,9 @@ class CategoriesSeeder extends Seeder
      */
     public function run()
     {
-        \DB::table('news')
+        /*\DB::table('news')
             ->insert([
-                'title_category'=>'History',]);
+                'title_category'=>'History',]);*/
 
     }
 }

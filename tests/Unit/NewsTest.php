@@ -2,7 +2,7 @@
 
 namespace Tests\Unit;
 
-use App\Models\News;
+use App\Models\NewsOld;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -17,7 +17,7 @@ class NewsTest extends TestCase
     public function testExample()
     {
         //$this->assertTrue(true);
-        $model = new News();
+        $model = new NewsOld();
         $data = $model->getByCategoryId(3);
         $this->assertIsArray($data);
         $this->assertNotEmpty($data);

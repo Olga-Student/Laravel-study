@@ -6,17 +6,15 @@
 
 @section('content')
     <div class="title m-b-md">
-        Какие новости Вас интересуют? Выберете категорию
+        Новости по выбранной категории
     </div>
     <div>
-        @forelse($category as $id => $item)
+        @forelse($news as $item)
             <div>
-                <a href='{{route('news::card', ['id'=>$id])}}'>{!! $item['topic']!!}</a>
-
-                {!! $item['description']!!}
+                <a href='{{route('news::card', ['news' => $item->id])}}'> {!! $item->title !!} </a>
             </div>
         @empty
-            Not categories;
+            Новостей нет!!!
         @endforelse
     </div>
 @endsection
