@@ -18,11 +18,7 @@
             <!--<input type="text" name="category" value="" class="form-control">-->
             </div>
 
-            <div class="form-group">
-                <label>Описание</label>
-            {!! Form::textarea('description', '', ['class' => 'form-control']) !!}
-            <!--<textarea name="description" class="form-control"  cols="84" rows="4"></textarea>-->
-            </div>
+
 
             <div class="form-group">
             {!! Form::submit('send', ['class' => 'btn btn-success']) !!}

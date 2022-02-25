@@ -9,11 +9,10 @@
         Какие новости Вас интересуют?  Выберете категорию
     </div>
     <div>
-        @forelse($category as $id => $item)
-            <div>
-                <a href='{{route('news::card', ['id'=>$id])}}'>{!! $item['topic']!!}</a>
+        @forelse( $category as  $item)
 
-                {!! $item['description']!!}
+            <div>
+                <a href='{{route('news::category',  ['id' => $item->id])}}'> <h2>{{$item->topic}}</h2></a>
             </div>
         @empty
             Not categories;

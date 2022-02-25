@@ -3,30 +3,28 @@
 namespace App\Http\Controllers;
 
 use App\Models\News;
+use App\Models\Category;
 use App\Models\NewsOld;
 use Illuminate\Http\Request;
 
 class NewsController extends Controller
 {
-   /* public function index(NewsOld $news){
+    public function indexNews(){
 
-       $newsArray = $news->getNews();
+       $news = News::all();
        //dd($newsArray);
-
-      return view('news.index', ['news'=>$newsArray]);
+      return view('news.index', ['news'=>$news]);
     }
 
-    public function card(NewsOld $news, $id)
-    {
-       //dd($news);
-        return view('news.card', ['item' => $news->getById($id)]);
-    }*/
-    public function index(){
 
-        $newsArray = News::all();
-        //dd($newsArray);
-        /*foreach ($newsArray as $item){dump($item->title);};*/
-        return view('news.index', ['news'=>$newsArray]);
+    public function index(){
+        $category = Category::all();
+        //dd($category);
+        return view('news.category', ['category'=>$category]);
+        /*$newsArray = News::all();
+       return view('news.index', ['news'=>$newsArray]);*/
+
+
 
       /* //внесение новой информации
         $news = new News();
@@ -58,11 +56,13 @@ class NewsController extends Controller
 
     }
 
+
     public function category(int $categoryId){
 
-        return view('news', ['news'=> News::getByCategoryId($categoryId)]);
-
+        return view('news.news', ['news'=> News::getByCategoryId($categoryId)]);
     }
+
+
 
 
     /*public function card(NewsOld $news, $id)
@@ -71,9 +71,9 @@ class NewsController extends Controller
         return view('news.card', ['item' => $news->getById($id)]);
     }*/
 
-   /* public function card($id)
+   /*public function card($id)
     {
-        $item = News::find($id);
+        $item = News::find($id);// поиск по айди
         //$item = News::findOrNew(); //если не найдет модель создаст новую;
         //$item = News::findCreate(); //если не найдет модель создаст новую и запишет в базе
         //$item = News::findOrFail(); //если не найдет создает исключения

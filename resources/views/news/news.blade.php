@@ -12,6 +12,8 @@
         @forelse($news as $item)
             <div>
                 <a href='{{route('news::card', ['news' => $item->id])}}'> {!! $item->title !!} </a>
+                {!! $item->content !!}
+                {!! $item->source !!}
             </div>
         @empty
             Новостей нет!!!

@@ -32,14 +32,18 @@ Route::get('/information', function () {
 /*Route::match(['get','post'], '/test', function (){'Hello';});
 Route::any('/test', function (){'Hello';}) or Route::view('/test', view('Hello'));
 Route::redirect('/test', '/test2'); //редирект лучше делать на стороне вебсервера*/
+Route::get('/newscatalog', [\App\Http\Controllers\NewsController::class, 'indexNews'])
+    ->name("news::newscatalog");
 
 Route::get('/news', [\App\Http\Controllers\NewsController::class, 'index'])
     ->name("news::catalog");
+
 Route::get('/news/category/{category_id}', [\App\Http\Controllers\NewsController::class, 'category'])
     ->name("news::category");
 
 Route::get('/news/card/{news}', [App\Http\Controllers\NewsController::class, 'card'])
     ->name("news::card");
+
 
 //Route::resource('admin/category', Admin\CategoryController::class);
 Route::get('/admin/category', [\App\Http\Controllers\Admin\CategoryController::class, 'index'])
@@ -80,6 +84,9 @@ Route::group([
 
     Route::get('update', [AdminNewsController::class, 'update'])
         ->name("update");
+
+    Route::get('show_news', [AdminNewsController::class, 'show_news'])
+        ->name("show_news");
 
     Route::get('delete', [AdminNewsController::class, 'delete'])
         ->name("delete");

@@ -5,7 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
-{   private $category = [
+{
+    /*  private $category = [
         1 => [
             'topic' => 'history',
             'description' => '111111'
@@ -27,12 +28,10 @@ class Category extends Model
     {
         return $this->category;
     }
-
     public function getById($id)
     {
         return $this->category[$id];
     }
-
     public function getByTopic ($categoryTopic)
     {
         $return = [];
@@ -47,6 +46,13 @@ class Category extends Model
     /*public function news() {
         return $this->hasMany(NEWS::class);
     }*/
+    protected $fillable = [
+        'topic',
+    ];
+
+    public function news(){
+        return $this->hasMany(News::class);
+    }
 }
 
 

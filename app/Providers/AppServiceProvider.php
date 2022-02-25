@@ -30,11 +30,11 @@ class AppServiceProvider extends ServiceProvider
             ],
             [
                 'title' => 'Категории',
-                'alias' => 'admin::category::index',
+                'alias' => 'news::catalog',
             ],
             [
                 'title' => 'Новости',
-                'alias' => 'news::catalog',
+                'alias' => 'news::newscatalog',
             ],
             [
                 'title' => 'Авторизация',

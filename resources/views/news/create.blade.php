@@ -18,14 +18,20 @@
             </div>
             <div class="form-group">
                 <label>Категория новости</label>
-                {!! Form::text('category', '',['class' => 'form-control']) !!}
+                {!! Form::text('category_id', '',['class' => 'form-control']) !!}
                 <!--<input type="text" name="category" value="" class="form-control">-->
             </div>
 
             <div class="form-group">
                 <label>Описание</label>
-                {!! Form::textarea('description', '', ['class' => 'form-control']) !!}
+                {!! Form::textarea('content', '', ['class' => 'form-control']) !!}
                 <!--<textarea name="description" class="form-control"  cols="84" rows="4"></textarea>-->
+            </div>
+
+            <div class="form-group">
+                <label>Источник</label>
+                {!! Form::text('source', '', ['class' => 'form-control']) !!}
+            <!--<textarea name="description" class="form-control"  cols="84" rows="4"></textarea>-->
             </div>
 
             <div class="form-group">
